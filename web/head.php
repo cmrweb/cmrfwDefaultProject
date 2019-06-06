@@ -10,7 +10,6 @@ include '_inc.php';
 	<meta name="description" content="framework css php cmrwebstrap">
 	<meta name="keywords" content="framework css php html">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css">
 	<?php
 	$prism="/asset/css/prism.css";
 	$normalize="/asset/css/normalize.css";
