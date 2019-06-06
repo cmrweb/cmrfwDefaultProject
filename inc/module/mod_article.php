@@ -1,14 +1,9 @@
-<?= 
-include_once 'inc/sql.php';
-$query = "SELECT * FROM `cmr_post`"; 
-$result = mysqli_query($connect, $query);
-while($row = mysqli_fetch_array($result)):;?>
-				<article class="article"  value="<?= $row[0];?>">
-
-				<h1><a href="article/<?=$row[0];?>"><?= $row[2];?></a></h1>
-				<p><?= $row[3];?></p>
-
-				</article>
-                  				
-<?php endwhile;?>
-
+<?php
+$db = new DB;
+$query = $db->select("*", "cmr_post");
+foreach ($db->result as $key => $value) : ?>
+	<article class="article" value="<?= $value['post_id']; ?>">
+		<h1><a href="article/<?= $value['post_id']; ?>"><?= $value["titre"]; ?></a></h1>
+		<p><?= $value["post"]; ?></p>
+	</article>
+<?php endforeach ?>

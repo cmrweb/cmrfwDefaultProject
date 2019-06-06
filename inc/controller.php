@@ -5,7 +5,7 @@ switch ($url) {
     require 'pages/home.php';
     break;
 
-    case 'article':
+    case $url[0]=='article'AND empty($url[1]):
     require 'pages/article.php';
     break;
     
