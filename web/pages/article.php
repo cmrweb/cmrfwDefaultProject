@@ -8,4 +8,4 @@ if (isset($id)) :?>
     <section class="medium primary">
         <?php include 'web/module/mod_articles.php'; ?>
     </section>
-<?php endif; ?>
+<?php endif; 

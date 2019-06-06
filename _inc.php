@@ -1,9 +1,9 @@
 <?php
 session_start();
 use cmr\html\Html;
-require 'class/Form.php';
-require 'class/Html.php';
-require 'class/DB.php';
+require 'lib/Form.php';
+require 'lib/Html.php';
+require 'lib/DB.php';
 require 'web/Entity/Article.php';
 $url="";
 if(isset($_GET['url'])){

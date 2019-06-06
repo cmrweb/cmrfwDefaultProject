@@ -1,7 +1,7 @@
 <?php 
-require 'web/head.php';
-require 'web/header.php';
-require 'web/Route.php';
-require 'web/footer.php'; 
-require 'web/script.php'; 
+require 'web/includes/head.php';
+require 'web/includes/header.php';
+require 'web/includes/Route.php';
+require 'web/includes/footer.php'; 
+require 'web/includes/script.php'; 
 ?>

@@ -2,7 +2,7 @@
 <header class="fixhead xlarge dark">
 <?=
 $html->h('1','CmrFramework');
-include 'module/nav.php';
+include 'web/module/nav.php';
 ?>
 
 </header>
