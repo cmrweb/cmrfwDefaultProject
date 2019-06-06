@@ -2,10 +2,7 @@
 class Article
 {
     public $data;
-    private $post_id;
-    private $user_id;
-    private $title;
-    private $post;
+
     function __construct($bool=NULL)
     {
         $pdo=new DB;
@@ -23,21 +20,5 @@ class Article
     public function getData():array
     {
         return $this->data;
-    }
-    public function getPostId(): self
-    {
-        return $this->data->post_id;
-    }
-    public function getUserId(): self
-    {
-        return $this->data->user_id;
-    }
-    public function getTitle(): self
-    {
-        return $this->data->title;
-    }
-    public function getPost(): self
-    {
-        return $this->data->post;
     }
 }

@@ -55,9 +55,9 @@ public function input($type,$name,$label,$po=''){
  * @param string $id
  * @return void
  */
-public function button($type,$color,$label='',$id=''){
+public function button($type,$color,$label='',$name='',$id=''){
     
-    return  "<button type=\"$type\" class=\"btn $color\" id=\"$id\">$label</button>";
+    return  "<button type=\"$type\" name=\"$name\" class=\"btn $color\" id=\"$id\">$label</button>";
 }
 public function textarea($row,$name,$label='',$id=''){
     
