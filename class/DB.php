@@ -1,7 +1,7 @@
 <?php
 class DB
 {
-    private $pdo;
+    protected $pdo;
     public $result;
     function __construct()
     {
@@ -10,9 +10,7 @@ class DB
             echo 'connected';
         } catch (Exception $e) {
             echo $e;
-        }
-        
-        
+        }     
     }
     public function select($select,$from,$where=null)
     {
