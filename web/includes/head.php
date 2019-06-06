@@ -10,19 +10,10 @@ include '_inc.php';
 	<meta name="description" content="framework css php cmrwebstrap">
 	<meta name="keywords" content="framework css php html">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<?php
-	$prism="/asset/css/prism.css";
-	$normalize="/asset/css/normalize.css";
-	$cmrstyle="/asset/css/cmrstyle.css";
-	if(count($url)>1):?>
-	<link rel="stylesheet" type="text/css" href="../<?=$prism?>">
-	<link rel="stylesheet" type="text/css" href="../<?=$normalize?>">
-	<link rel="stylesheet" type="text/css" href="../<?=$cmrstyle?>">	
-	<?php else :?>
-	<link rel="stylesheet" type="text/css" href="asset/css/prism.css">
-	<link rel="stylesheet" type="text/css" href="asset/css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="asset/css/cmrstyle.css">		
-	<?php endif;?>
+	<base href="FULL_BASE_URL" />
+	<link rel="stylesheet" type="text/css" href="/cmrfwDefaultProject/<?=CSS_DIR?>prism.css">
+	<link rel="stylesheet" type="text/css" href="/cmrfwDefaultProject/<?=CSS_DIR?>normalize.css">
+	<link rel="stylesheet" type="text/css" href="/cmrfwDefaultProject/<?=CSS_DIR?>cmrstyle.css">	
 </head>
 <body>
 

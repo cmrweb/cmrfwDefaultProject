@@ -1,6 +1,8 @@
 <?php
 session_start();
 use cmr\html\Html;
+define('CSS_DIR', '/asset/css/');
+define('JS_DIR', '/asset/js/');
 require 'lib/Form.php';
 require 'lib/Html.php';
 require 'lib/DB.php';
