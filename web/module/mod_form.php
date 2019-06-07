@@ -15,7 +15,7 @@ if(isset($_POST['send'])){
 }
 $form = $html->h('1', 'Article') .
     $html->formOpen('', 'post', 'large dark') .
-    $html->input('text', 'title', 'Nom', 'entrer votre nom') .
+    $html->input('text', 'title', 'Titre') .
     $html->textarea('6', 'msg', 'Message', 'msg') .
     $html->button('submit','primary center', 'envoyer','send' ) .
     $html->formClose().
