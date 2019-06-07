@@ -24,16 +24,14 @@ class DB
             return $this->result = $req->fetchAll();
         }
     }
-    public function insert($into,$value,$where=null,$bind=null)
+    public function insert($into,$value,$where=null)
     {
         if($where){
             $req=$this->pdo->prepare("INSERT INTO $into VALUES ($value) WHERE $where");
-            $req->execute([$bind]);
-            return $this->result = $req->fetchAll();
+            $req->execute();
         }else{
-            $req=$this->pdo->prepare("INSERT INTO $into VALUES $value");
-            $req->execute([$bind]);
-            return $this->result = $req->fetchAll();
+            $req=$this->pdo->prepare("INSERT INTO $into VALUES ($value)");
+            $req->execute();
         }
     }
 }

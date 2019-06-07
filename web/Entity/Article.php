@@ -1,8 +1,11 @@
 <?php
 class Article
 {
-    public $data;
-
+    private $data;
+    private $post_id;
+    private $user_id;
+    private $title;
+    private $post;
     function __construct($bool=NULL)
     {
         $pdo=new DB;
@@ -14,11 +17,33 @@ class Article
                 'title' => $value["titre"],
                 'post' => $value["post"]
             ];
+            $this->post_id[] = $value['post_id'];
+            $this->user_id[] = $value['user_id'];
+            $this->title[] = $value['titre'];
+            $this->post[] = $value['post'];
         }
+        
         return $this->data;
     }
     public function getData():array
     {
         return $this->data;
     }
+    public function getPostId():array
+    {
+        return $this->post_id;
+    }
+    public function getUserId():array
+    {
+        return $this->user_id;
+    }
+    public function getTitle():array
+    {
+        return $this->title;
+    }
+    public function getPost():array
+    {
+        return $this->post;
+    }
+
 }

@@ -11,9 +11,9 @@ include '_inc.php';
 	<meta name="keywords" content="framework css php html">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<base href="FULL_BASE_URL" />
-	<link rel="stylesheet" type="text/css" href="/cmrfwDefaultProject/<?=CSS_DIR?>prism.css">
-	<link rel="stylesheet" type="text/css" href="/cmrfwDefaultProject/<?=CSS_DIR?>normalize.css">
-	<link rel="stylesheet" type="text/css" href="/cmrfwDefaultProject/<?=CSS_DIR?>cmrstyle.css">	
+	<link rel="stylesheet" type="text/css" href="<?=ROOT_DIR.CSS_DIR?>prism.css">
+	<link rel="stylesheet" type="text/css" href="<?=ROOT_DIR.CSS_DIR?>normalize.css">
+	<link rel="stylesheet" type="text/css" href="<?=ROOT_DIR.CSS_DIR?>cmrstyle.css">	
 </head>
 <body>
 

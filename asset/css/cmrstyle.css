@@ -139,7 +139,7 @@ COLOR
 *****************************************************************************************/
 
 .primary {
-    background-color: #0c94ca;
+    background-color: #0952a5;
     color: #fff;
 
 }
@@ -226,7 +226,6 @@ INPUT
     border-radius: 10px;
     cursor: pointer;
     padding: 10px 20px 10px 20px;
-    box-shadow: 0px 5px 5px 5px #ccc;
     border: 1px solid #ccc;
 }
 .btn-link {
@@ -239,6 +238,14 @@ INPUT
     padding: 10px 20px 10px 20px;
     box-shadow: 0px 5px 5px 5px #ccc;
     border: 1px solid #ccc;
+}
+/*****************************************************************************************
+POSITION
+*****************************************************************************************/
+.center{
+    display:block;
+    text-align:center;
+    margin: auto;
 }
 
 
