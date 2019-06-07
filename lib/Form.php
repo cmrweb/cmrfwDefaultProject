@@ -56,8 +56,12 @@ public function input($type,$name,$label,$po=''){
  * @return void
  */
 public function button($type,$color,$label='',$name='',$id=''){
-    
-    return  "<button type=\"$type\" name=\"$name\" class=\"btn $color\" id=\"$id\">$label</button>";
+    if($id){
+        return  "<button type=\"$type\" name=\"$name\" class=\"btn $color\" id=\"$id\">$label</button>";
+    }else{
+        return  "<button type=\"$type\" name=\"$name\" class=\"btn $color\">$label</button>";
+    }
+   
 }
 public function textarea($row,$name,$label='',$id=''){
     

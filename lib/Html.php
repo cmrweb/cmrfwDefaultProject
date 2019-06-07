@@ -22,16 +22,16 @@ class Html extends Form{
     }
 
     public function menu($lst,$class=''){
-        $list='';
+        $list=[];
         foreach($lst as $k =>$v){
-                $list .="<li>
-                         <a class=\"$class\" href=\"$k\">$v
+                $list[$k] ="<li>
+                         <a class=\"$class\" href=\"$v\">$k</a>
                          </li>";        
         }
         return "
-                <ul>
-                $list
-                </ul>
+                <ul>".
+               implode("",$list)
+              ."  </ul>
                 ";     
         }
 
