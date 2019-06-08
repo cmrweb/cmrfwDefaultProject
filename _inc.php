@@ -16,3 +16,8 @@ $url="";
 if(isset($_GET['url'])){
     $url=explode('/',$_GET['url']);
 }
+if(isset($_SESSION['user'])){
+    $username = $_SESSION['user']['name'];
+}else{
+    $username='';
+}
