@@ -6,7 +6,7 @@ class DB
     function __construct()
     {
         try {
-            return $this->pdo = new PDO("mysql:host=localhost;dbname=db_cmrfw",'root','',[PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION]);
+            return $this->pdo = new PDO('mysql:host=localhost;dbname=db_cmrfw','root','',[PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION]);
             echo 'connected';
         } catch (Exception $e) {
             echo $e;

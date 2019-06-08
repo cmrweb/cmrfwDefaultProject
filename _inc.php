@@ -1,4 +1,11 @@
 <?php
+$params=[
+    "connect"=>[
+        'local'=>"'mysql:host=localhost;dbname=db_cmrfw','root',''",
+        'online'=>"'mysql:host=;dbname=','user','pass'",   
+        ]
+];
+
 session_start();
 use cmr\html\Html;
 define('ROOT_DIR', '/cmrfwDefaultProject');
