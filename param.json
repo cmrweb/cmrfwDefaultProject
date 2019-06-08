@@ -1,0 +1,16 @@
+{
+    "connect":{
+        "local":{
+            "host":"localhost",
+            "dbname":"db_cmrfw",
+            "user":"root",
+            "pass":""
+        },
+        "online":{
+            "host":"localhost",
+            "dbname":"db_cmrfw",
+            "user":"root",
+            "pass":""
+        }
+    }
+}

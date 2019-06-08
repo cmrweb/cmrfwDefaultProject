@@ -1,5 +1,6 @@
 <?php
 $article = new Article;
+var_dump(CONNECT_PATH['local']) ;
 //var_dump($article->getPostId());
 foreach ($article->getData() as $key => $value) : ?>
 	<article class="article" value="<?= $value['post_id']; ?>">
