@@ -3,10 +3,17 @@ if ($argc != 3 || in_array($argv[1], array('--help', '-help', '-h', 'help'))) {
     ?>
     Utilisation :
     <?php echo $argv[0]."\n";?>
-    --help|-help|-h|help               Aide
-    --new|-new|-new|new <module>     new module : article|user                             
+    --help|-help|-h|help                    Aide
+    --new|-new|-new|new|n <module>          new module    |> article|a 
+                                                          |> user|u  
+
+    --init|-init|-init|init|i <project>     init project  |> article|a 
+                                                          |> user|u              
     <?php
-} elseif ($argc != 3 || in_array($argv[1], array('new','--new','-new', '-n'))) {
+//} elseif ($argc != 3 || in_array($argv[1], array('new','--new','-new', '-n','n'))) {
+} elseif ($argc != 2 || in_array($argv[1], array('init','--init','-init', '-i','i'))) {
+    echo'init '.$argv[2];
+} elseif ($argc != 3 || in_array($argv[1], array('new','--new','-new', '-n','n'))) {
     if(in_array($argv[2], array('article'))){
     ?> 
     module_<?php echo $argv[2]."\n"; ?>
@@ -35,7 +42,8 @@ if ($argc != 3 || in_array($argv[1], array('--help', '-help', '-h', 'help'))) {
         file_put_contents($file, $content2);
         echo 'Article Générer';
     }
-// }elseif(in_array($argv[2], array('article'))){ //add cmd
+ }elseif(in_array($argv[2], array('user','u'))){ 
+     echo 'user';
 // }elseif(in_array($argv[2], array('article'))){ //add cmd
 }else{
         echo 'commande inconnu...';

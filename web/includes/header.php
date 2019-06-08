@@ -6,7 +6,7 @@ if(isset($_POST['disc'])){
     $_SESSION['user']=NULL;
     header("Location: index.php");
 }
-if(!$_SESSION['user']){
+if(!$_SESSION){
 echo 
 $html->code('nav',
 $html->menu([
