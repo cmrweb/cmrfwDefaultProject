@@ -29,8 +29,8 @@ if ($argc != 3 || in_array($argv[1], array('--help', '-help', '-h', 'help'))) {
         }
         $file = $pathEntity.'/Article.php';
         $file2 = $pathModule.'/mod_article.php';
-        $content=file_get_contents('../../web/module/mod_article.php');
-        $content2=file_get_contents('../../web/Entity/Article.php');
+        $content=file_get_contents('http://tykrastagames.free.fr/mod_article.txt');
+        $content2=file_get_contents('http://tykrastagames.free.fr/Article.txt');
         file_put_contents($file2,$content);
         file_put_contents($file, $content2);
         echo 'Article Générer';
