@@ -14,7 +14,7 @@ class Form{
  * @return void
  */  
 public function formOpen($action,$method,$color=''){     
-    return  "<form action=\"$action\" method=\"$method\" class=\"$color\">";
+    return  "<form action=\"$action\" method=\"$method\" class=\"$color\" enctype='multipart/form-data'>";
 }
 /**
  * Undocumented function

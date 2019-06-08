@@ -35,7 +35,7 @@ small{
 .fixhead{
     position: fixed;
     top: 0;
-    height: 100px;
+    height: 75px;
     z-index: 100;
 }
 .xlarge {
@@ -143,7 +143,7 @@ COLOR
 *****************************************************************************************/
 
 .primary {
-    background-color: #0952a5;
+    background-color: #548faa;
     color: #fff;
 
 }
@@ -200,11 +200,22 @@ COLOR
     color: #fff;
 
 }
-
+.navConn{
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    right: 0;
+}
 /*****************************************************************************************
-INPUT
+FORM
 *****************************************************************************************/
-
+.formSign,.formLog{
+    display: none;
+    position: absolute;
+    top: 75px;
+    right: 0;
+    z-index: 100;
+}
 .form {
     margin-bottom: 10px;
 }

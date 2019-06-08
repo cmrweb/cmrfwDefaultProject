@@ -27,11 +27,10 @@ if (isset($_POST['send'])) {
 }
 
 
-$form = $html->h('1', 'Sign in Module') .
-    $html->formOpen('', 'post', 'medium dark') .
+$form = $html->formOpen('', 'post', 'medium dark formSign') .
     $html->input('text', 'username_Sign', 'Nom d\'utilisateur', 'entrer votre nom') .
     $html->input('password', 'password_Sign', 'mot de passe') .
     $html->button('submit', 'primary center', 's\'inscrire', 'send') .
-    $html->formClose() .
-    $html->p($msg);
+    $html->p($msg).
+    $html->formClose();
 echo $form;

@@ -21,19 +21,25 @@ class Html extends Form{
         return  "<p>$text</p>";
     }
 
-    public function menu($lst,$class=''){
+    public function menu($lst,$class='',$id=''){
         $list=[];
-        foreach($lst as $k =>$v){
-                $list[$k] ="<li>
+        if(!empty($id)){
+            foreach($lst as $k =>$v){
+                $list[$k]="<li id=\"$id\">
                          <a class=\"$class\" href=\"$v\">$k</a>
                          </li>";        
         }
-        return "
-                <ul>".
-               implode("",$list)
-              ."  </ul>
-                ";     
+        return "<ul>".implode("",$list)."</ul>";     
+        }else{
+            foreach($lst as $k =>$v){
+                $list[$k]="<li>
+                         <a class=\"$class\" href=\"$v\">$k</a>
+                         </li>";        
         }
+        return "<ul>".implode("",$list)."</ul>";
+        }
+        }
+
 
     public function a($link,$text,$color=''){
         return  "<a class=\"btn-link $color\" href=\"$link\">$text</a>";

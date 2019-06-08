@@ -28,11 +28,11 @@ if (isset($_POST['send'])) {
 }
 
 
-$form = $html->h('1', 'Login Module') .
-    $html->formOpen('', 'post', 'medium dark') .
+$form = $html->formOpen('', 'post', 'medium dark formLog') .
     $html->input('text', 'username_Log', 'Nom d\'utilisateur', 'entrer votre nom') .
     $html->input('password', 'password_Log', 'mot de passe') .
     $html->button('submit', 'primary center', 'se connecter', 'send') .
-    $html->formClose() .
-    $html->p($msg);
+    $html->p($msg).
+    $html->formClose();
+    
 echo $form;

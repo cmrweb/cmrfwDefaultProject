@@ -6,6 +6,7 @@ class Article
     private $user_id;
     private $title;
     private $post;
+    private $img;
     function __construct($bool=NULL)
     {
         $pdo=new DB;
@@ -15,12 +16,14 @@ class Article
                 'post_id' => $value['post_id'],
                 'user_id' => $value['user_id'],
                 'title' => $value["titre"],
-                'post' => $value["post"]
+                'post' => $value["post"],
+                'img' => $value["img"]
             ];
             $this->post_id[] = $value['post_id'];
             $this->user_id[] = $value['user_id'];
             $this->title[] = $value['titre'];
             $this->post[] = $value['post'];
+            $this->img[] = $value['img'];
         }
         
         return $this->data;
@@ -46,4 +49,8 @@ class Article
         return $this->post;
     }
 
+    public function getImg():array
+    {
+        return $this->img;
+    }
 }
