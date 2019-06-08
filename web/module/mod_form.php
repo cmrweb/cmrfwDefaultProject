@@ -1,7 +1,9 @@
 <?php
 $msg = "";
-if (isset($_POST['send'])) {
-    if (!isset($_FILES['upload'])&&!empty($_POST['title']) && !empty($_POST['msg'])) {
+if(isset($_FILES['upload']))
+$file=array_filter($_FILES['upload']);
+if (isset($_POST['send'])&&$file!=1) {
+    if (!empty($_POST['title']) && !empty($_POST['msg'])) {
         try {
             $db = new DB;
             $db->insert('cmr_post(user_id,titre,post)', "1,'{$_POST['title']}','{$_POST['msg']}'");
@@ -12,8 +14,10 @@ if (isset($_POST['send'])) {
     } else {
         $msg = "Bah alors! tu ne veux rien écrire ???";
     }
-    $file=$_FILES['upload'];
-    if (isset($file)) {
+}
+if (isset($_POST['send'])&&$file>1) {    
+    
+    if (isset($file)>1) {
         if ($_FILES['upload']["size"] <= 5000000) {
             $check = getimagesize($_FILES["upload"]["tmp_name"]);
             if ($check) {
