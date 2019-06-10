@@ -25,6 +25,26 @@ if ($argc != 3 || in_array($argv[1], array('--help', '-help', '-h', 'help'))) {
         $pathJs = '../../'.$argv[2].'/asset/js/';
         $pathLib = '../../'.$argv[2].'/lib/';
         $pathimg = '../../'.$argv[2].'/asset/img/';
+        $pathWeb = '../../'.$argv[2].'/web/';
+        $pathIncludes = '../../'.$argv[2].'/web/includes';
+        $pathEntity = '../../'.$argv[2].'/web/Entity';
+        $pathmodule = '../../'.$argv[2].'/web/module';
+        $pathpages = '../../'.$argv[2].'/web/pages';
+        if (!is_dir($pathpages)&&!mkdir($pathpages, 0777,true)) {
+            die('Echec lors de la création des répertoires...');
+        }
+        if (!is_dir($pathmodule)&&!mkdir($pathmodule, 0777,true)) {
+            die('Echec lors de la création des répertoires...');
+        }
+        if (!is_dir($pathEntity)&&!mkdir($pathEntity, 0777,true)) {
+            die('Echec lors de la création des répertoires...');
+        }
+        if (!is_dir($pathIncludes)&&!mkdir($pathIncludes, 0777,true)) {
+            die('Echec lors de la création des répertoires...');
+        }
+        if (!is_dir($pathWeb)&&!mkdir($pathWeb, 0777,true)) {
+            die('Echec lors de la création des répertoires...');
+        }
         if (!is_dir($pathimg)&&!mkdir($pathimg, 0777,true)) {
             die('Echec lors de la création des répertoires...');
         }
