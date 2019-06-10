@@ -1,8 +1,8 @@
 <?php
 echo $html->h('1', !empty($username) ? 'Welcome Home ' . $username : 'Welcome Home', 'large');
 //versioning beta
-$old = 'test  aeea';
-$new = 'test eeb';
+$old = 'test1 aeea';
+$new = 'test2 eeb';
 preg_match_all("/[^~$new+~]|[\s]/","$old",$matches);
 preg_match_all("/[^~$old+~]|[\s]/","$new",$notin);
 echo '<pre>';
@@ -98,6 +98,8 @@ function diffline($line1, $line2)
     $n = count($diffval);
     $pmc = 0;
     $result = '';
+    $msg='';
+    $msg2='';
     for ($i = 0; $i < $n; $i++)
     {
         $mc = $diffmask[$i];
@@ -105,25 +107,25 @@ function diffline($line1, $line2)
         {
             switch ($pmc)
             {
-                case -1: $result .= '</del>'; break;
-                case 1: $result .= '</ins>'; break;
+                case -1:$msg.='<del>'. $result .'</del>'; break;
+                case 1:$msg.= '<ins>'.$result .'</ins>'; break;
             }
             switch ($mc)
             {
-                case -1: $result .= '<del>'; break;
-                case 1: $result .= '<ins>'; break;
+                case -1:$msg.='<del>'. $result .'<del>'; break;
+                case 1:$msg.='<ins>'.$result .'</ins>'; break;
             }
         }
-        $result .= $diffval[$i];
+        $msg .= $diffval[$i];
 
         $pmc = $mc;
     }
     switch ($pmc)
     {
-        case -1: $result .= '</del>'; break;
-        case 1: $result .= '</ins>'; break;
+        case -1:$msg.= '<del>'.$result .'</del>'; break;
+        case 1:$msg.='<ins>'.$result .'</ins>'; break;
     }
-
-    return $result;
+    return $msg;
+    
 }
 echo diffline($old, $new);
