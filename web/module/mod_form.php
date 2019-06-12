@@ -1,6 +1,6 @@
 <?php
 $msg = "";
-$user_id = 1;
+$user_id = $userid;
 if (isset($_FILES['upload']))
     $file = array_filter($_FILES['upload']);
 //var_dump($file);
@@ -9,10 +9,10 @@ if (isset($_POST['send']) && isset($file["error"])) {
         try {
             $db = new DB;
             if (isset($id)) {
-                $db->insert('cmr_post(user_id,parent_id,titre,post)', "$user_id,$id,'{$_POST['title']}','{$_POST['msg']}'");
+                $db->insert('cmr_post(user_id,parent_id,titre,post)', "{$user_id},$id,'{$_POST['title']}','{$_POST['msg']}'");
                 $msg = "Message envoyer";
             } else {
-                $db->insert('cmr_post(user_id,titre,post)', "$user_id,'{$_POST['title']}','{$_POST['msg']}'");
+                $db->insert('cmr_post(user_id,titre,post)', "{$user_id},'{$_POST['title']}','{$_POST['msg']}'");
                 $msg = "Message envoyer";
             }
         } catch (Exception $e) {
@@ -37,10 +37,10 @@ if (isset($_POST['send']) && !isset($file["error"])) {
                     try {
                         if (isset($id)) {
                             $db = new DB;
-                            $db->insert('cmr_post(user_id,parent_id,titre,post,img)', "$user_id,$id,'{$_POST['title']}','{$_POST['msg']}','$fileDbName'");
+                            $db->insert('cmr_post(user_id,parent_id,titre,post,img)', "{$user_id},$id,'{$_POST['title']}','{$_POST['msg']}','$fileDbName'");
                         } else {
                             $db = new DB;
-                            $db->insert('cmr_post(user_id,titre,post,img)', "$user_id,'{$_POST['title']}','{$_POST['msg']}','$fileDbName'");
+                            $db->insert('cmr_post(user_id,titre,post,img)', "{$user_id},'{$_POST['title']}','{$_POST['msg']}','$fileDbName'");
                         }
                     } catch (Exception $e) {
                         echo $e->getMessage();
@@ -66,12 +66,12 @@ if (isset($_POST['send']) && !isset($file["error"])) {
 
 
 $form = $html->code('section',
-    $html->h('1', 'Message') .
-    $html->formOpen('', 'post', 'large dark') .
+    $html->h('1','Message') .
+    $html->formOpen('article', 'post', 'large dark') .
     $html->input('text', 'title', 'Titre') .
     $html->textarea('6', 'msg', 'Message', 'msg') .
     $html->input('file', 'upload', 'file') .
-    $html->img('','imgpreview','img'). 
+    $html->img('#','imgpreview','img'). 
     $html->button('submit', 'primary center', 'envoyer', 'send') .
     $html->formClose() .
     $html->p($msg),

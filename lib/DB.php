@@ -11,7 +11,8 @@ class DB
     function __construct()
     {
         try {
-            return $this->pdo = new PDO("mysql:host={$GLOBALS['host']};dbname={$GLOBALS['db']}","{$GLOBALS['user']}","{$GLOBALS['pass']}",[PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION]);
+            $this->pdo = new PDO("mysql:host={$GLOBALS['host']};dbname={$GLOBALS['db']}","{$GLOBALS['user']}","{$GLOBALS['pass']}",[PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION]);            
+            return $this->pdo;
             echo 'connected';
         } catch (Exception $e) {
             echo $e;
@@ -34,9 +35,11 @@ class DB
         if($where){
             $req=$this->pdo->prepare("INSERT INTO $into VALUES ($value) WHERE $where");
             $req->execute();
+            return $this;            
         }else{
             $req=$this->pdo->prepare("INSERT INTO $into VALUES ($value)");
             $req->execute();
+            return $this;        
         }
     }
 }

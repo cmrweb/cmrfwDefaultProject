@@ -31,12 +31,18 @@ public function formClose(){ return  "</form>";}
  * @param string $po
  * @return void
  */
-public function input($type,$name,$label,$po=''){
-    if($po!=''){
+public function input($type,$name,$label,$po='',$value=''){
+    if($po!=''&&$value==''){
         return  "<div class=\"form\">
         <label for=\"$name\">$label</label>
         <input type=\"$type\" class=\"input\" name=\"$name\" 
         placeholder=\"$po\" id=\"$name\">
+        </div>";
+    }elseif($po!=''&&$value!=''){
+        return  "<div class=\"form\">
+        <label for=\"$name\">$label</label>
+        <input type=\"$type\" class=\"input\" name=\"$name\" 
+        placeholder=\"$po\" id=\"$name\" value=\"$value\">
         </div>";
     }else{
         return  "<div class=\"form\">
@@ -44,7 +50,7 @@ public function input($type,$name,$label,$po=''){
         <input type=\"$type\" class=\"input\" name=\"$name\" 
         id=\"$name\">
         </div>";
-    }   
+    }
 }
 /**
  * Undocumented function

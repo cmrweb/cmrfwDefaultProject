@@ -1,6 +1,9 @@
-<!-- 
-    
- -->
+<?php
+    if(!$_SESSION['user']){
+        header('Location: ./');
+    }
+?>
+
 <h1>Article <?= isset($id) ? $id  : '' ?></h1>
 <?php
 
