@@ -11,9 +11,11 @@ if (isset($_POST['send']) && isset($file["error"])) {
             if (isset($id)) {
                 $db->insert('cmr_post(user_id,parent_id,titre,post)', "{$user_id},$id,'{$_POST['title']}','{$_POST['msg']}'");
                 $msg = "Message envoyer";
+            header('Refresh: 0');
             } else {
                 $db->insert('cmr_post(user_id,titre,post)', "{$user_id},'{$_POST['title']}','{$_POST['msg']}'");
                 $msg = "Message envoyer";
+            header('Refresh: 0');
             }
         } catch (Exception $e) {
             echo $e->getMessage();
@@ -38,9 +40,11 @@ if (isset($_POST['send']) && !isset($file["error"])) {
                         if (isset($id)) {
                             $db = new DB;
                             $db->insert('cmr_post(user_id,parent_id,titre,post,img)', "{$user_id},$id,'{$_POST['title']}','{$_POST['msg']}','$fileDbName'");
+                        header('Refresh: 0');
                         } else {
                             $db = new DB;
                             $db->insert('cmr_post(user_id,titre,post,img)', "{$user_id},'{$_POST['title']}','{$_POST['msg']}','$fileDbName'");
+                        header('Refresh: 0');
                         }
                     } catch (Exception $e) {
                         echo $e->getMessage();
@@ -59,15 +63,9 @@ if (isset($_POST['send']) && !isset($file["error"])) {
         $msg = "Tu peut mettre un titre stp!";
     }
 }
-
-     
-
-
-
-
 $form = $html->code('section',
     $html->h('1','Message') .
-    $html->formOpen('article', 'post', 'large dark') .
+    $html->formOpen('', 'post', 'large dark') .
     $html->input('text', 'title', 'Titre') .
     $html->textarea('6', 'msg', 'Message', 'msg') .
     $html->input('file', 'upload', 'file') .
@@ -77,5 +75,5 @@ $form = $html->code('section',
     $html->p($msg),
     'gold formtop');
 echo $form;
-?>
+
 
