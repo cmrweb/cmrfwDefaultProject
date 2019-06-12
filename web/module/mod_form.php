@@ -60,14 +60,22 @@ if (isset($_POST['send']) && !isset($file["error"])) {
     }
 }
 
+     
+
+
+
+
 $form = $html->code('section',
     $html->h('1', 'Message') .
     $html->formOpen('', 'post', 'large dark') .
     $html->input('text', 'title', 'Titre') .
     $html->textarea('6', 'msg', 'Message', 'msg') .
     $html->input('file', 'upload', 'file') .
+    $html->img('','imgpreview','img'). 
     $html->button('submit', 'primary center', 'envoyer', 'send') .
     $html->formClose() .
     $html->p($msg),
     'gold formtop');
 echo $form;
+?>
+

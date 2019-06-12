@@ -52,7 +52,7 @@ class Html extends Form{
      * @return void
      */
     public function img($src,$alt='',$class=''){
-        return  "<img class=\"$class\" src=\"$src\" alt=\"$alt\">";
+        return  "<img class=\"$class\" src=\"$src\" alt=\"$alt\" id=\"$alt\">";
     }
 }
 

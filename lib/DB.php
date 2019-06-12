@@ -1,5 +1,4 @@
 <?php
-var_dump(CONNECT_PATH['local']);
 $host=CONNECT_PATH["host"];
 $db=CONNECT_PATH["dbname"];
 $user=CONNECT_PATH["user"];

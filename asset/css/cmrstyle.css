@@ -88,8 +88,18 @@ pre.medium {
     margin: 0 auto;
     width: 100%;
 }
+#imgpreview{
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    width: 100%;
+}
 .article{
     padding: 10px;
+}
+.articles{
+    float: left;
+    width: 70%;
 }
 /*****************************************************************************************
 NAV
@@ -220,7 +230,7 @@ FORM
     position: absolute;
     top: 75px;
     right: 0;
-    width: 25%;
+    width: 30%;
 }
 .form {
     margin-bottom: 10px;
