@@ -3,7 +3,7 @@ $params=json_decode(file_get_contents('param.json'),true);
 
 session_start();
 use cmr\html\Html;
-define('CONNECT_PATH', $params['connect']);
+define('CONNECT_PATH', $params['connect']['local']);
 define('ROOT_DIR', '/cmrfwDefaultProject');
 define('CSS_DIR', '/asset/css/');
 define('JS_DIR', '/asset/js/');
