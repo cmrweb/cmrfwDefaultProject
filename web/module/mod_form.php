@@ -74,7 +74,7 @@ $form = $html->code('section',
     $html->button('submit', 'primary center', 'envoyer', 'send') .
     $html->formClose() .
     $html->p($msg),
-    'gold formtop');
+    'dark formtop');
 echo $form;
 
 

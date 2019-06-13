@@ -1,5 +1,5 @@
 
-<header class="fixhead xlarge dark">
+<header class="fixhead xlarge light">
 <?php
 echo $html->h('1','CmrFramework');
 if(isset($_POST['disc'])){

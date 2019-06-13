@@ -51,4 +51,16 @@ class DB
             return $this;        
         }
     }
+    public function update($table,$set,$where=null)
+    {
+        if($where){
+            $req=$this->pdo->prepare("UPDATE $table SET $set WHERE $where");
+            $req->execute();
+            return $this;            
+        }else{
+            $req=$this->pdo->prepare("UPDATE $table SET $set");
+            $req->execute();
+            return $this;        
+        }
+    }
 }

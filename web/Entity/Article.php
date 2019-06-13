@@ -1,6 +1,7 @@
 <?php
 class Article
 {
+    private $pdo;
     private $data;
     private $post_id;
     private $parent_id;
@@ -8,18 +9,20 @@ class Article
     private $title;
     private $post;
     private $img;
+    private $like;
     function __construct($bool=NULL)
     {
-        $pdo=new DB;
-        $pdo->select("*", "cmr_post",$bool);
-        foreach ($pdo->result as $value) {
+        $this->pdo=new DB;
+        $this->pdo->select("*", "cmr_post",$bool);
+        foreach ($this->pdo->result as $value) {
             $this->data[$value['post_id']] = [
                 'post_id' => $value['post_id'],
                 'parent_id' => $value['parent_id'],
                 'user_id' => $value['user_id'],
                 'title' => $value["titre"],
                 'post' => $value["post"],
-                'img' => $value["img"]
+                'img' => $value["img"],
+                'like' => $value["like_count"]
             ];
             $this->post_id[] = $value['post_id'];
             $this->parent_id[] = $value['parent_id'];
@@ -27,9 +30,14 @@ class Article
             $this->title[] = $value['titre'];
             $this->post[] = $value['post'];
             $this->img[] = $value['img'];
+            $this->like[] = $value['like_count'];
         }
         
         return $this->data;
+    }
+    public function like($id){
+        $this->pdo->update("cmr_post","like_count=like_count + 1",$id);
+        return $this;
     }
     public function getData():?array
     {
@@ -59,5 +67,9 @@ class Article
     public function getImg():array
     {
         return $this->img;
+    }
+    public function getLike():array
+    {
+        return $this->like;
     }
 }

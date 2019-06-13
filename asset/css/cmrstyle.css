@@ -1,7 +1,14 @@
 /*****************************************************************************************
 COMMUN
 *****************************************************************************************/
-
+:root{
+    --primary:#548faa;
+    --success:#1dc547;
+    --dark:#031c1d;
+    --light:#dedfe4;
+    --gold:#dfbc0e;
+    --danger:#a00606;
+}
 * {
     box-sizing: border-box;
 }
@@ -15,7 +22,7 @@ pre {
     border: 1px solid #fff;
 }
 body{
-    background-color: #000000;
+    background-color: #fff;
     color: #ffffff;
 }
 h1,
@@ -86,7 +93,7 @@ pre.medium {
 
 }
 .Mtop{
-    margin-top: 100px;
+    margin-top: 75px;
 }
 .img-profil {
     display: block;
@@ -158,31 +165,35 @@ COLOR
 *****************************************************************************************/
 
 .primary {
-    background-color: #548faa;
+    background-color: var(--primary);
     color: #fff;
 
 }
 
 .success {
-    background-color: #1dc547;
+    background-color: var(--success);
     color: #fff;
 
 }
 
 .gold {
-    background-color: #dfbc0e;
+    background-color: var(--gold);
     color: rgb(34, 33, 33);
 
 }
 
 .dark {
-    background-color: #031c1d;
+    background-color: var(--dark);
     color: #fff;
 
 }
+.light {
+    background-color: var(--light);
+    color: #202020;
 
+}
 .danger {
-    background-color: #a00606;
+    background-color: var(--danger);
     color: #fff;
 
 }
@@ -232,7 +243,7 @@ FORM
     z-index: 100;
 }
 .formtop{
-    position: absolute;
+    position: fixed;
     top: 75px;
     right: 0;
     width: 30%;

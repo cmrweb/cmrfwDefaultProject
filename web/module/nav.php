@@ -4,5 +4,5 @@ $html->menu([
     'Home'=> '/cmrfwDefaultProject/' ,
     'Article'=> '/cmrfwDefaultProject/article' 
 ],
-'gold'),
+'dark'),
 'nav navrad');

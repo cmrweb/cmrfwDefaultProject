@@ -3,7 +3,7 @@
         header('Location: ./');
     }
 ?> 
-<section class="large dark articles">
+<section class="large light articles">
 <h1>Article <?= isset($id) ? $id  : '' ?></h1>
 
 <?php if (isset($id)) : ?>
