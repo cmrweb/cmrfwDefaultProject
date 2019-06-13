@@ -2,7 +2,7 @@
 session_start();
 $params=json_decode(file_get_contents('param.json'),true);
 define('CONNECT_PATH', $params['connect']['local']);
-define('ROOT_DIR', '/cmrfwDefaultProject');
+define('ROOT_DIR', '/'.$params['root_path']['local']);
 define('CSS_DIR', '/asset/css/');
 define('JS_DIR', '/asset/js/');
 define('IMG_DIR', '/asset/img/');
@@ -12,6 +12,9 @@ include 'lib/Form.php';
 include 'lib/Html.php';
 include 'lib/DB.php';
 include 'lib/Autoload.php';
+function dump($var){
+    echo "<pre>";var_dump($var);echo"</pre>";
+}
 Autoloader::register(); 
 $url="";
 if(isset($_GET['url'])){

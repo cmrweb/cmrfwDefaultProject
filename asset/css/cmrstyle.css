@@ -28,6 +28,11 @@ a {
     font-family: "mukta";
     text-align: center;
     margin: 0 auto;
+    text-decoration: none;
+    color:inherit;
+}
+a:hover {
+color: #be9b0e;
 }
 small{
     display: block;

@@ -2,17 +2,13 @@
     if(!$_SESSION['user']){
         header('Location: ./');
     }
-?>
-
+?> 
+<section class="large dark articles">
 <h1>Article <?= isset($id) ? $id  : '' ?></h1>
-<?php
 
-if (isset($id)) : ?>
-    <section class="large primary articles">
-        <?php require_once '../' . ROOT_DIR . MOD_DIR . 'mod_article.php'; ?>
-    </section>
+<?php if (isset($id)) : ?>
+    <?php require_once '../' . ROOT_DIR . MOD_DIR . 'mod_article.php'; ?>
 <?php else : ?>
-    <section class="medium primary articles">
-        <?php require_once '../' . ROOT_DIR . MOD_DIR . 'mod_articles.php'; ?>
-    </section>
-<?php endif;
+    <?php require_once '../' . ROOT_DIR . MOD_DIR . 'mod_articles.php'; ?>
+<?php endif;?>
+   </section>

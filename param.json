@@ -1,16 +1,20 @@
 {
-    "connect":{
-        "local":{
-            "host":"localhost",
-            "dbname":"db_cmrfw",
-            "user":"root",
-            "pass":""
+    "connect": {
+        "local": {
+            "host": "localhost",
+            "dbname": "db_cmrfw",
+            "user": "root",
+            "pass": ""
         },
-        "online":{
-            "host":"localhost",
-            "dbname":"db_cmrfw",
-            "user":"root",
-            "pass":""
+        "online": {
+            "host": "localhost",
+            "dbname": "db_cmrfw",
+            "user": "root",
+            "pass": ""
         }
+    },
+    "root_path": {
+        "local": "cmrfwDefaultProject",
+        "online": ""
     }
 }

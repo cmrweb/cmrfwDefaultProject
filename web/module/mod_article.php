@@ -13,7 +13,7 @@ foreach ($articleById->getData() as $key => $value) : ?>
     $ChildArticle = new Article("parent_id=$id");
     
     if ($ChildArticle->getData()) :
-        //var_dump($ChildArticle);
+        //var_dump($ChildArticle->getData());
         foreach ($ChildArticle->getData() as $key => $value) : ?>
             <article class="article medium" value="<?= $value['post_id']; ?>">
                 <h4><?= $value["title"]; ?></h4>

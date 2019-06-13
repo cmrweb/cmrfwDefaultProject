@@ -14,7 +14,7 @@ class DB
         return $this->pdo;
 
     }
-    public function select($select,$from,$where=null,$order=false)
+    public function select($select,$from,$where=null,$order=false,$group=false)
     {       
         $order = preg_replace('/cmr_/','',$from);
         if($where){
@@ -28,9 +28,15 @@ class DB
                 return $this->result = $req->fetchAll();
             }
         }else{
-            $req=$this->pdo->prepare("SELECT $select FROM $from order by {$order}_id desc");
-            $req->execute();
-            return $this->result = $req->fetchAll();
+            if($group){
+                $req=$this->pdo->prepare("SELECT $select FROM $from GROUP by {$group}");
+                $req->execute();
+                return $this->result = $req->fetchAll();
+            }else{
+                $req=$this->pdo->prepare("SELECT $select FROM $from order by {$order}");
+                $req->execute();
+                return $this->result = $req->fetchAll();  
+            }
         }
     }
     public function insert($into,$value,$where=null)
