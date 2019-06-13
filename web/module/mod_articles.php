@@ -1,6 +1,6 @@
 <?php
 require_once '../' . ROOT_DIR . MOD_DIR . 'mod_form.php';
-$article = new Article('parent_id=0');
+$article = new Article('parent_id=0',true);
 
 //var_dump($article->getData());
 foreach ($article->getData() as $key => $value) : ?>

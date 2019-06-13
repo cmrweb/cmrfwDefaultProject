@@ -7,14 +7,16 @@
         });
         function readURL(input) {
             if (input.files && input.files[0]) {
+                
                 var reader = new FileReader();
-
                 reader.onload = function(e) {
                     $('#imgpreview').attr('src', e.target.result);
                 }
-
+                if (input.files[0]) {
                 reader.readAsDataURL(input.files[0]);
+                }
             }
+
         }
 
         $("#upload").change(function() {

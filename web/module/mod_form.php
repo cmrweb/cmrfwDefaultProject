@@ -63,6 +63,7 @@ if (isset($_POST['send']) && !isset($file["error"])) {
         $msg = "Tu peut mettre un titre stp!";
     }
 }
+
 $form = $html->code('section',
     $html->h('1','Message') .
     $html->formOpen('', 'post', 'large dark') .

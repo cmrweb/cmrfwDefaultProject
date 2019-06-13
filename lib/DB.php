@@ -1,8 +1,8 @@
 <?php
-$host=CONNECT_PATH["host"];
-$db=CONNECT_PATH["dbname"];
-$user=CONNECT_PATH["user"];
-$pass=CONNECT_PATH["pass"];
+$_SESSION['connect']['host']=CONNECT_PATH["host"];
+$_SESSION['connect']['db']=CONNECT_PATH["dbname"];
+$_SESSION['connect']['user']=CONNECT_PATH["user"];
+$_SESSION['connect']['pass']=CONNECT_PATH["pass"];
 class DB
 {
 
@@ -10,17 +10,23 @@ class DB
     public $result;
     function __construct()
     {
-        $this->pdo = new PDO("mysql:host={$GLOBALS['host']};dbname={$GLOBALS['db']}","{$GLOBALS['user']}","{$GLOBALS['pass']}",[PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION]);            
+        $this->pdo = new PDO("mysql:host={$_SESSION['connect']['host']};dbname={$_SESSION['connect']['db']}","{$_SESSION['connect']['user']}","{$_SESSION['connect']['pass']}",[PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION]);            
         return $this->pdo;
 
     }
-    public function select($select,$from,$where=null)
+    public function select($select,$from,$where=null,$order=false)
     {       
         $order = preg_replace('/cmr_/','',$from);
         if($where){
-            $req=$this->pdo->prepare("SELECT $select FROM $from WHERE $where order by {$order}_id desc");
-            $req->execute();
-            return $this->result = $req->fetchAll();
+            if(!$order){
+                $req=$this->pdo->prepare("SELECT $select FROM $from WHERE $where order by {$order}_id asc");
+                $req->execute();
+                return $this->result = $req->fetchAll();
+            }else{
+                $req=$this->pdo->prepare("SELECT $select FROM $from WHERE $where order by {$order}_id desc");
+                $req->execute();
+                return $this->result = $req->fetchAll();
+            }
         }else{
             $req=$this->pdo->prepare("SELECT $select FROM $from order by {$order}_id desc");
             $req->execute();
