@@ -31,9 +31,9 @@ public function formClose(){ return  "</form>";}
  * @param string $po
  * @return void
  */
-public function input($type,$name,$label,$po='',$value=''){
+public function input($type,$name,$label,$class='',$po='',$value=''){
     if($po!=''&&$value==''){
-        return  "<div class=\"form\">
+        return  "<div class=\"form $class\">
         <label for=\"$name\">$label</label>
         <input type=\"$type\" class=\"input\" name=\"$name\" 
         placeholder=\"$po\" id=\"$name\">

@@ -1,4 +1,7 @@
-cmd :
+*cmrframework
+
+
+ligne de commande :
 
 ``cd cmrfwDefaultProject\lib``
 
@@ -6,3 +9,4 @@ cmd :
 ``cli\cmr``
 
 
+(https://tykrastagames.000webhostapp.com/cmrfwDefaultProject/)

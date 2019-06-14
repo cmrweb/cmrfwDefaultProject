@@ -12,6 +12,7 @@ include 'lib/Form.php';
 include 'lib/Html.php';
 include 'lib/DB.php';
 include 'lib/Autoload.php';
+include 'lib/version.php';
 function dump($var){
     echo "<pre>";var_dump($var);echo"</pre>";
 }
