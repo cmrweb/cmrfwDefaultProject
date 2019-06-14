@@ -15,6 +15,7 @@ include '_inc.php';
 	<link rel="stylesheet" type="text/css" href="<?=ROOT_DIR.CSS_DIR?>prism.css">
 	<link rel="stylesheet" type="text/css" href="<?=ROOT_DIR.CSS_DIR?>normalize.css">
 	<link rel="stylesheet" type="text/css" href="<?=ROOT_DIR.CSS_DIR?>cmrstyle.css">
+	<script src="<?= ROOT_DIR . JS_DIR ?>jquery-3.2.1.min.js"></script>
 		
 </head>
 <body>
