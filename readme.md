@@ -1,4 +1,4 @@
-#cmrframework
+# cmrframework
 
 
 ligne de commande :
@@ -9,4 +9,4 @@ ligne de commande :
 ``cli\cmr``
 
 
-(https://tykrastagames.000webhostapp.com/cmrfwDefaultProject/)
+<https://tykrastagames.000webhostapp.com/cmrfwDefaultProject/>
