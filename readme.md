@@ -1,4 +1,4 @@
-*cmrframework
+#cmrframework
 
 
 ligne de commande :
