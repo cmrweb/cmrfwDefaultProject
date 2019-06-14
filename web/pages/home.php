@@ -1,16 +1,7 @@
 <?php
 echo $html->h('1', !empty($username) ? 'Welcome Home ' . $username : 'Welcome Home', 'large');
 //versioning beta
-$old = 'test1 aeea';
-$new = 'test2 eeb';
-preg_match_all("/[^~$new+~]|[\s]/","$old",$matches);
-preg_match_all("/[^~$old+~]|[\s]/","$new",$notin);
-dump($matches);
-dump($notin);
-echo $old;
-echo '<br>';
-echo $new;
-echo '<br>';
+
 function computeDiff($from, $to)
 {
     $diffValues = array();
@@ -85,12 +76,6 @@ function diffline($line1, $line2)
     $diff = computeDiff(str_split($line1), str_split($line2));
     $diffval = $diff['values'];
     $diffmask = $diff['mask'];
-    echo '<pre>';
-    var_dump($diffval);
-    echo '</pre>';
-    echo '<pre>';
-    var_dump($diffmask);
-    echo '</pre>';
     $n = count($diffval);
     $pmc = 0;
     $result = '';
@@ -103,25 +88,37 @@ function diffline($line1, $line2)
         {
             switch ($pmc)
             {
-                case -1:$msg.='<del>'. $result .'</del>'; break;
-                case 1:$msg.= '<ins>'.$result .'</ins>'; break;
+                case -1:$result .='</del>'; break;
+                case 1:$result .='</ins>'; break;
             }
             switch ($mc)
             {
-                case -1:$msg.='<del>'. $result .'<del>'; break;
-                case 1:$msg.='<ins>'.$result .'</ins>'; break;
+                case -1:$result .='<del>'; break;
+                case 1:$result .='</ins>'; break;
             }
         }
-        $msg .= $diffval[$i];
+        $result .= $diffval[$i];
 
         $pmc = $mc;
     }
     switch ($pmc)
     {
-        case -1:$msg.= '<del>'.$result .'</del>'; break;
-        case 1:$msg.='<ins>'.$result .'</ins>'; break;
+        case -1:$result .='</del>'; break;
+        case 1:$result .='</ins>'; break;
     }
-    return $msg;
+    return $result;
     
 }
-echo diffline($old, $new);
+$old = 'test1 aeea';
+$new = 'test2 eeb';
+
+echo $old;
+echo '<br>';
+echo $new;
+echo '<br>';
+$res = diffline($old, $new);
+$res= preg_replace('/\<del\>/',"<span style='color:red'>",$res);
+$res= preg_replace('/\<\/del\>/',"</span>",$res);
+$res= preg_replace('/\<\/ins\>/',"<span style='color:blue'>",$res);
+//$res= preg_replace('/\<\/ins\>/',"</span>",$res);
+echo $res;
