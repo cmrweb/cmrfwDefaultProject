@@ -10,7 +10,7 @@ class DB
     public $result;
     function __construct()
     {
-        $this->pdo = new PDO("mysql:host={$_SESSION['connect']['host']};dbname={$_SESSION['connect']['db']}","{$_SESSION['connect']['user']}","{$_SESSION['connect']['pass']}",[PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION]);            
+        $this->pdo = new PDO("mysql:host={$_SESSION['connect']['host']};dbname={$_SESSION['connect']['db']};","{$_SESSION['connect']['user']}","{$_SESSION['connect']['pass']}",[PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION]);            
         return $this->pdo;
 
     }

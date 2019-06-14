@@ -18,5 +18,4 @@ switch ($url) {
      echo 'ERREUR 404';
      break;
 }
-
 ?>
