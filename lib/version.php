@@ -91,7 +91,7 @@ function versioning($line1, $line2)
             switch ($mc)
             {
                 case -1:$result .="<sup><span class='danger'>"; break;
-                case 1:$result .="<span class='success'>"; break;
+                case 1:$result .="<span class='primary'>"; break;
             }
         }
         $result .= $diffval[$i];
@@ -103,6 +103,6 @@ function versioning($line1, $line2)
         case -1:$result .="</span></sup>"; break;
         case 1:$result .="</span>"; break;
     }
-    return $result;
+    return"<span style='letter-spacing: 5px' class='success'>". $result."</span>";
     
 }

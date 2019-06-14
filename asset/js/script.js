@@ -29,7 +29,7 @@ function focusBlur() {
     });
 }
 function checkNames() {
-    $(":text").on("keyup blur focus", function () {
+    $(".verifName").on("keyup blur focus", function () {
         if ($(this).val() == "") {
             $(this).next().remove(".erreur");
             $(this).css({

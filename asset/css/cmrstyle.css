@@ -38,6 +38,9 @@ a {
     text-decoration: none;
     color:inherit;
 }
+p,span{
+    padding: 5px;
+}
 a:hover {
 color: #be9b0e;
 }

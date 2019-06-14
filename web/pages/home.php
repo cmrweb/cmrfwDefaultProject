@@ -1,19 +1,25 @@
 <?php
 echo $html->h('1', !empty($username) ? 'Welcome Home ' . $username : 'Welcome Home', 'large');
 //versioning beta
-$old = 'test1 aeea echo';
-$new = 'test2 eeb echo';
-echo $html->h('3',"versioning");
-echo $old;
-echo '<br>';
-echo $new;
-echo '<br>';
-$res = versioning($old, $new);
-echo $res;
+ $old = 'test1';
+ $new='test2';
+if (isset($_POST['send'])) {  
+    $new = $_POST['version'];
+}
+echo $html->h('3',"versioning").
+$html->formOpen('', 'post') .
+$html->input('text','version','version','medium','text').
+$html->button('submit', 'dark center', 'send', 'send') .
+$html->formClose();
+ echo$html->p($old) ;
+    echo$html->p($new) ;
+    $res = versioning($old, $new);
+    echo$html->p($res) ;
+
 
 //Hashtag beta
 echo $html->h('3',"hashtag");
-echo $html->p('');
+echo $html->h('6','');
 echo $html->input('text','text','text','medium','text');
 ?>
 <script>
@@ -21,6 +27,6 @@ var text = document.querySelector('#text');
 text.addEventListener('keyup',function(){
     console.log(text.value);
     var matches = text.value.match(/\#(\w*)/g);
-    $('p').html('<p>'+matches+'</p>');
+    $('h6').html('<p>'+matches+'</p>');
 });
 </script>
