@@ -111,14 +111,25 @@ function diffline($line1, $line2)
 }
 $old = 'test1 aeea';
 $new = 'test2 eeb';
-
+echo $html->h('3',"versioning");
 echo $old;
 echo '<br>';
 echo $new;
 echo '<br>';
 $res = diffline($old, $new);
-$res= preg_replace('/\<del\>/',"<span style='color:red'>",$res);
-$res= preg_replace('/\<\/del\>/',"</span>",$res);
-$res= preg_replace('/\<\/ins\>/',"<span style='color:blue'>",$res);
+$res= preg_replace('/\<del\>/',"<sup><span style='color:red'>",$res);
+$res= preg_replace('/\<\/del\>/',"</span></sup>",$res);
+// $res= preg_replace('/\<\/ins\>/',"<span style='color:blue'>",$res);
 //$res= preg_replace('/\<\/ins\>/',"</span>",$res);
 echo $res;
+echo $html->h('3',"hashtag");
+echo $html->input('text','text','text','text');
+?>
+<script>
+var text = document.querySelector('#text');
+text.addEventListener('keyup',function(){
+    console.log(text.value);
+    var matches = text.value.match(/\#(\w*)/g);
+    console.log(matches);
+});
+</script>
