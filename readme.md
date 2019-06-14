@@ -1,4 +1,4 @@
-cmd
+cmd :
 
 ``cd cmrfwDefaultProject\lib``
 
