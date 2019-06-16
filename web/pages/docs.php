@@ -5,17 +5,27 @@ $code->select('*', 'cmr_code');
 ?>
 <section>
     <table class='sidenav'>
-        <tr class='sideul dark'>
-            <?php foreach ($code->result as $key => $value) : ?>
+        
+        <tr class='sideul dark'> 
+           <th class='btn btn-dark'><a href="#Balise">HTML</a></th> 
+            <?php foreach ($code->result as $key => $value) : ?>   
+            <?php if($value['category_id']==1):?>
                 <td ><a href="#<?= $value['titre'] ?>"><?= $value['titre'] ?></a></td>
+            <?php endif ?>
             <?php endforeach ?>
+            <th class='btn btn-dark'><a href="#Form">FORM</a></th>
+            <?php foreach ($code->result as $key => $value) : ?>   
+            <?php if($value['category_id']==2):?>
+                <td ><a href="#<?= $value['titre'] ?>"><?= $value['titre'] ?></a></td>
+            <?php endif ?>
+            <?php endforeach ?> 
         </tr>
     </table>
 </section>
 <section class="large right">
     <?php foreach ($code->result as $key => $value) : ?>
         <article class="docs"  id="<?= $value['titre'] ?>">
-            <h1 class="xlarge gold"><?= $value['titre'] ?></h1>
+            <h1 class="xlarge gold"><a href="#<?= $value['titre'] ?>"><?= $value['titre'] ?></a></h1>
             <pre>
     <code class="language-php">
     <?= $value['code'] ?>
