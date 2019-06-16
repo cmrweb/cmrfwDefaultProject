@@ -5,8 +5,7 @@ $code->select('*', 'cmr_code');
 ?>
 <section>
     <table class='sidenav'>
-        <tr class='sideul'>
-            <th>HTML</th>
+        <tr class='sideul dark'>
             <?php foreach ($code->result as $key => $value) : ?>
                 <td ><a href="#<?= $value['titre'] ?>"><?= $value['titre'] ?></a></td>
             <?php endforeach ?>

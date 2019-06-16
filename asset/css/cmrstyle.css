@@ -154,7 +154,11 @@ NAV
     justify-content: center;
     flex-direction: column;
     position: fixed;
-    top: 80px;
+    top: 0;
+    bottom:0;
+    padding: 10% 1px;
+    background: #414242;
+    color:#fff;
 }
 .sideul td{
     padding: 10px 2px;
