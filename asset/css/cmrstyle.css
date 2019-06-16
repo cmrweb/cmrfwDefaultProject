@@ -15,7 +15,7 @@ COMMUN
 :target:before {
     content:"";
     display:block;
-    height:90px; 
+    height:200px; 
     margin:-90px 0 0; 
     }
 @font-face {
@@ -46,6 +46,17 @@ a {
 p,span{
     padding: 5px;
 }
+article.docs{
+    margin: 40px 20% 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 800px;
+}
+hr{
+    width: 30%;
+    margin-left: 25%;
+}
 footer{
     display: block;
     text-align: center;
@@ -60,6 +71,10 @@ color: #be9b0e;
 }
 small{
     display: block;
+}
+.right {
+    width: 80%;
+    float: right;
 }
 .fixhead{
     position: fixed;
@@ -155,10 +170,8 @@ NAV
     flex-direction: column;
     position: fixed;
     top: 0;
-    bottom:0;
-    padding: 10% 1px;
-    background: #414242;
-    color:#fff;
+    bottom: 0;
+    padding: 10% 15px;
 }
 .sideul td{
     padding: 10px 2px;

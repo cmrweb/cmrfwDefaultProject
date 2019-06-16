@@ -12,10 +12,10 @@ $code->select('*', 'cmr_code');
         </tr>
     </table>
 </section>
-<section class="large">
+<section class="large right">
     <?php foreach ($code->result as $key => $value) : ?>
-        <article  id="<?= $value['titre'] ?>">
-            <h1><?= $value['titre'] ?></h1>
+        <article class="docs"  id="<?= $value['titre'] ?>">
+            <h1 class="xlarge gold"><?= $value['titre'] ?></h1>
             <pre>
     <code class="language-php">
     <?= $value['code'] ?>
