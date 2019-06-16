@@ -1,5 +1,4 @@
 <?php
-namespace cmr\html;
 class Html extends Form{
 
     public function code($balise,$html,$class='',$id=''){
@@ -55,5 +54,3 @@ class Html extends Form{
         return  "<img class=\"$class\" src=\"$src\" alt=\"$alt\" id=\"$alt\">";
     }
 }
-
-return $html = new Html();

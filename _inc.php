@@ -1,6 +1,11 @@
 <?php
 session_start();
 require 'vendor/autoload.php';
+include 'Autoload.php';
+use cmr\autoload\Autoloader;
+Autoloader::register(); 
+$html = new Html();
+include 'lib/version.php';
 $dotenv = Dotenv\Dotenv::create(__DIR__);;
 $dotenv->overload();
 //dump($_ENV);
@@ -10,15 +15,12 @@ define('JS_DIR', '/asset/js/');
 define('IMG_DIR', '/asset/img/');
 define('MOD_DIR', '/web/module/');
 define('PAGES_DIR', '/web/pages/');
-include 'lib/Form.php';
-include 'lib/Html.php';
-include 'lib/DB.php';
-include 'lib/Autoload.php';
-include 'lib/version.php';
+
+
 function dump($var){
     echo "<pre>";var_dump($var);echo"</pre>";
 }
-Autoloader::register(); 
+
 $url="";
 if(isset($_GET['url'])){
     $url=explode('/',$_GET['url']);

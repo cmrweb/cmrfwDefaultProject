@@ -1,8 +1,4 @@
 <?php
-namespace cmr\html;
-/**
- * Undocumented class
- */
 class Form{
    
 /**
