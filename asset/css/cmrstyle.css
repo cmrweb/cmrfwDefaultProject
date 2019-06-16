@@ -12,7 +12,12 @@ COMMUN
 * {
     box-sizing: border-box;
 }
-
+:target:before {
+    content:"";
+    display:block;
+    height:90px; 
+    margin:-90px 0 0; 
+    }
 @font-face {
     font-family: "mukta";
     src: url(../fonts/Mukta-Regular.ttf);
@@ -40,6 +45,15 @@ a {
 }
 p,span{
     padding: 5px;
+}
+footer{
+    display: block;
+    text-align: center;
+    background: var(--dark);
+    color:#fff;
+    width: 100%;
+    position: fixed;
+    bottom:0;
 }
 a:hover {
 color: #be9b0e;
@@ -132,7 +146,20 @@ NAV
 .navrad ul ul li:last-child a{
     border-radius: 0 0 20px 20px;
 }
-
+.sidenav{
+    position: fixed;
+}
+.sideul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 80px;
+}
+.sideul td{
+    padding: 10px 2px;
+    font-size: 24px;
+}
 .nav ul{
     display: flex;
     justify-content: center;

@@ -14,8 +14,8 @@ switch ($url) {
     require "web/pages/article.php";
     break;
 
-    case $url[0]=='param.json' AND empty($url[1]):
-    require 'TU CHERCHE QUOI??';
+    case $url[0]=='docs'AND empty($url[1]):
+    require 'web/pages/docs.php';
     break;
 
     default:

@@ -9,8 +9,8 @@ class Form{
  * @param string $color
  * @return void
  */  
-public function formOpen($action,$method,$color=''){     
-    return  "<form action=\"$action\" method=\"$method\" class=\"$color\" enctype='multipart/form-data'>";
+public function formOpen($action,$method,$class=''){     
+    return  "<form action=\"$action\" method=\"$method\" class=\"$class\" enctype='multipart/form-data'>";
 }
 /**
  * Undocumented function

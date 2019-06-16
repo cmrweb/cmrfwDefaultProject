@@ -40,8 +40,13 @@ class Html extends Form{
         }
 
 
-    public function a($link,$text,$color=''){
-        return  "<a class=\"btn-link $color\" href=\"$link\">$text</a>";
+    public function a(string $link,string $text,string $class=""){
+        if($class){
+            return  "<a class=\"$class\" href=\"$link\">$text</a>";
+        }else{
+            return  "<a href=\"$link\">$text</a>";
+        }
+       
     }
     /**
      * create image
