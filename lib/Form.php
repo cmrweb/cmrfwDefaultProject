@@ -39,13 +39,13 @@ public function input($type,$name,$label,$class='',$po='',$value=''){
         placeholder=\"$po\" id=\"$name\">
         </div>";
     }elseif($po!=''&&$value!=''){
-        return  "<div class=\"form\">
+        return  "<div class=\"form $class\">
         <label for=\"$name\">$label</label>
         <input type=\"$type\" class=\"input\" name=\"$name\" 
         placeholder=\"$po\" id=\"$name\" value=\"$value\">
         </div>";
     }else{
-        return  "<div class=\"form\">
+        return  "<div class=\"form $class\">
         <label for=\"$name\">$label</label>
         <input type=\"$type\" class=\"input\" name=\"$name\" 
         id=\"$name\">

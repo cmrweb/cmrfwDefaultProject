@@ -5,28 +5,33 @@ $countCom = new DB;
 $countCom->select("parent_id,COUNT(parent_id) as comm", "cmr_post", null, false, "parent_id");
 //dump($countCom->result);
 //dump($article->getData());
+$user=new User();
 
+
+//dump($user->getData());
 foreach ($article->getData() as $key => $value) : ?>
 	<article class="article" value="<?= $value['post_id']; ?>">
 		<h1><a href="article/<?= $value['post_id']; ?>"><?= $value['title'] ?></a></h1>
 		<!-- <?php
 		if(isset($_POST['like'])){
-			$article->like("post_id={$value['post_id']}");
+			$article->like($value['post_id']);
+			dump($value['post_id']);
 		}
 		?>
 		<form action="" method="post">
-			<button type="submit" name="like">like <?= $value['like']; ?></button>			
+			<button type="submit" data-id="<?=$value['post_id']?>" name="like">like <?= $value['like']; ?></button>			
 		</form>	 -->
-
-		<?php
-		foreach ($countCom->result as $k => $v) :
+		<?php foreach ($user->getData() as $k => $v) :
+			if ($v["user_id"] == $value["user_id"]) : ?>
+				<small><?= $v["username"] ?></small>
+			<?php endif;endforeach;?>
+		<?php foreach ($countCom->result as $k => $v) :
 			if ($v['parent_id'] == $value['post_id']) : ?>
 				<small><?= $v['comm'] ?> Commentaire</small>
-			<?php endif;
-		endforeach;
-		?>
-		<p><?= $value['post']; ?></p>
-		<img src="<?= ROOT_DIR . IMG_DIR . '/' . $value["img"] ?>" alt="" width="100%">
+			<?php endif;endforeach;?>
+		<!-- <p><?= preg_replace("/\#/","<a href=''>#</a>",$value['post']); ?></p> -->
+		<p><?= $value['post']?></p>
+		<a href="article/<?= $value['post_id']; ?>"><img src="<?= ROOT_DIR . IMG_DIR . '/' . $value["img"] ?>" alt="" width="100%"></a>
 	</article>
 <?php
 endforeach;

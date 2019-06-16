@@ -3,7 +3,7 @@ $msg = "";
 $user_id = $userid;
 if (isset($_FILES['upload']))
     $file = array_filter($_FILES['upload']);
-//var_dump($file);
+//dump($file);
 if (isset($_POST['send']) && isset($file["error"])) {
     if (!empty($_POST['title']) && !empty($_POST['msg'])) {
         try {
@@ -35,7 +35,9 @@ if (isset($_POST['send']) && !isset($file["error"])) {
                 $target_file = bin2hex($bytes);
                 $uploadName = strtolower($target_dir . '/' . $target_file . '.' . $ext);
                 $fileDbName = strtolower($target_file . '.' . $ext);
+                if(is_uploaded_file($_FILES['upload']["tmp_name"]))
                 if (move_uploaded_file($_FILES['upload']["tmp_name"], $uploadName)) {
+                    
                     try {
                         if (isset($id)) {
                             $db = new DB;

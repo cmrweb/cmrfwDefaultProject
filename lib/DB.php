@@ -1,16 +1,11 @@
 <?php
-$_SESSION['connect']['host']=CONNECT_PATH["host"];
-$_SESSION['connect']['db']=CONNECT_PATH["dbname"];
-$_SESSION['connect']['user']=CONNECT_PATH["user"];
-$_SESSION['connect']['pass']=CONNECT_PATH["pass"];
 class DB
 {
-
     protected $pdo;
     public $result;
     function __construct()
     {
-        $this->pdo = new PDO("mysql:host={$_SESSION['connect']['host']};dbname={$_SESSION['connect']['db']};","{$_SESSION['connect']['user']}","{$_SESSION['connect']['pass']}",[PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION]);            
+        $this->pdo = new PDO("mysql:host={$_ENV['DB_HOST']};dbname={$_ENV['DB_NAME']};","{$_ENV['DB_USER']}","{$_ENV['DB_PASS']}",[PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION]);            
         return $this->pdo;
 
     }
@@ -33,7 +28,7 @@ class DB
                 $req->execute();
                 return $this->result = $req->fetchAll();
             }else{
-                $req=$this->pdo->prepare("SELECT $select FROM $from order by {$order}");
+                $req=$this->pdo->prepare("SELECT $select FROM $from");
                 $req->execute();
                 return $this->result = $req->fetchAll();  
             }

@@ -14,6 +14,10 @@ switch ($url) {
     require "web/pages/article.php";
     break;
 
+    case $url[0]=='param.json' AND empty($url[1]):
+    require 'TU CHERCHE QUOI??';
+    break;
+
     default:
      echo 'ERREUR 404';
      break;

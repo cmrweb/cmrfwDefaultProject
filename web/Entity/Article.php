@@ -36,7 +36,7 @@ class Article
         return $this->data;
     }
     public function like($id){
-        $this->pdo->update("cmr_post","like_count=like_count + 1",$id);
+        $this->pdo->update("cmr_post","like_count=like_count + 1","post_id={$id}");
         return $this;
     }
     public function getData():?array
