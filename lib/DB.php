@@ -9,7 +9,7 @@ class DB
         return $this->pdo;
 
     }
-    public function select($select,$from,$where=null,$order=false,$group=false)
+    public function select(string $select,string $from,?string $where=null,?bool $order=false,?bool $group=false):array
     {       
         $order = preg_replace('/cmr_/','',$from);
         if($where){
@@ -34,7 +34,7 @@ class DB
             }
         }
     }
-    public function insert($into,$value,$where=null)
+    public function insert(string $into,string $value,?string $where=null):self
     {
         if($where){
             $req=$this->pdo->prepare("INSERT INTO $into VALUES ($value) WHERE $where");
@@ -46,7 +46,7 @@ class DB
             return $this;        
         }
     }
-    public function update($table,$set,$where=null)
+    public function update(string $table,string $set,?string $where=null):self
     {
         if($where){
             $req=$this->pdo->prepare("UPDATE $table SET $set WHERE $where");
