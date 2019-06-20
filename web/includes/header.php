@@ -4,6 +4,7 @@
 echo $html->h('1','CmrFramework');
 if(isset($_POST['disc'])){
     $_SESSION['user']=NULL;
+    $_SESSION['flash']['danger'] = "deconneter";
     header("Location: index.php");
 }
 if(!isset($_SESSION['user'])){
@@ -29,4 +30,19 @@ include 'web/module/nav.php';
 
 </header>
 <main class="Mtop">
-
+<?php if(isset($_SESSION['flash'])): ?>
+<?php foreach($_SESSION['flash'] as $type => $message): ?>
+<div class="small bg-<?= $type; ?>">
+	<?= $message; ?>
+</div>
+<?php endforeach; ?>
+<script>
+    var t=setTimeout("killPage",30*1000);
+function killPage(){
+    <?php unset($_SESSION['flash']); ?>
+}
+function questionComplete(){
+    t.clearTimeout();
+}
+</script>
+<?php endif; ?>

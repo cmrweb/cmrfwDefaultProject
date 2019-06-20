@@ -56,3 +56,38 @@ text.addEventListener('keyup',function(){
     $('h6').html('<p>'+matches+'</p>');
 });
 </script>
+<style>
+.video{
+    position:relative;
+    margin: auto;
+    width: 80%;
+}
+video {
+    display: block;
+    width: 100%;
+    margin:20px 0;
+}
+.videoController{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+</style>
+<!-- Video player -->
+<section class="video">
+    <video id="video" src="<?=ROOT_DIR.VIDEO_DIR?>./video.mp4"></video>
+<div class="videoController">
+    <span id="play">play</span>
+    <span>prev</span>
+    <span>next</span>
+</div>
+</section>
+<script>
+$( document ).ready(function() {
+    var video = document.querySelector('#video')
+    $('#play').click(function() {
+        video.paused ? video.play() : video.pause();
+    });
+});
+</script>

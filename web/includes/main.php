@@ -18,6 +18,10 @@ switch ($url) {
     require 'web/pages/docs.php';
     break;
 
+    case $url[0]=='.env'AND empty($url[1]):
+    require 'web/pages/docs.php';
+    break;
+
     default:
      echo 'ERREUR 404';
      break;

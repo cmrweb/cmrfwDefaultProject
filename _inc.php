@@ -13,6 +13,7 @@ define('ROOT_DIR', '/'.$_ENV['ROOT_PATH']);
 define('CSS_DIR', '/asset/css/');
 define('JS_DIR', '/asset/js/');
 define('IMG_DIR', '/asset/img/');
+define('VIDEO_DIR', '/asset/video/');
 define('MOD_DIR', '/web/module/');
 define('PAGES_DIR', '/web/pages/');
 

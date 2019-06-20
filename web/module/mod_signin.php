@@ -1,5 +1,4 @@
 <?php
-$msg = "";
 if (isset($_POST['send'])) {
     if (!empty($_POST['username_Sign']) && !empty($_POST['password_Sign'])) {
     if(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/",$_POST['password_Sign'])){
@@ -14,20 +13,20 @@ if (isset($_POST['send'])) {
                 try {
                     $db = new DB;
                     $db->insert('cmr_user(username,password)', "'{$name}','{$pass}'");
-                    $msg = "Bienvenu(e)!";
+                    $_SESSION['flash']['success'] = "Bienvenu(e)!";
                 } catch (Exception $e) {
                     $msg= $e->getMessage();
                 }
             } 
         }else{
-            $msg = "les mots de passes ne sont pas identique ???";
+            $_SESSION['flash']['danger'] = "les mots de passes ne sont pas identique ???";
         }
 
     }else{
-        $msg ="le mot de passe doit contenir au moins 8 character, une Majuscule et un chiffre";
+        $_SESSION['flash']['danger'] ="le mot de passe doit contenir au moins 8 character, une Majuscule et un chiffre";
     }
     } else {
-        $msg = "heu! tu ne comprend pas ???";
+        $_SESSION['flash']['danger'] = "heu! tu ne comprend pas ???";
     }
 }
 
@@ -37,6 +36,5 @@ $form = $html->formOpen('', 'post', 'medium dark formSign') .
     $html->input('password', 'password_Sign', 'mot de passe') .
     $html->input('password', 'password_Verif', 'confirmer mot de passe') .
     $html->button('submit', 'primary center', 's\'inscrire', 'send') .
-    $html->p($msg).
     $html->formClose();
 echo $form;

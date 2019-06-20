@@ -1,5 +1,5 @@
 <?php
-$msg = "";
+
 $user_id = $userid;
 if (isset($_FILES['upload']))
     $file = array_filter($_FILES['upload']);
@@ -10,18 +10,18 @@ if (isset($_POST['send']) && isset($file["error"])) {
             $db = new DB;
             if (isset($id)) {
                 $db->insert('cmr_post(user_id,parent_id,titre,post)', "{$user_id},$id,'{$_POST['title']}','{$_POST['msg']}'");
-                $msg = "Message envoyer";
-            header('Refresh: 0');
+                $_SESSION['flash']['success'] = "Message envoyer";
+           // header('Refresh: 0');
             } else {
                 $db->insert('cmr_post(user_id,titre,post)', "{$user_id},'{$_POST['title']}','{$_POST['msg']}'");
-                $msg = "Message envoyer";
-            header('Refresh: 0');
+                $_SESSION['flash']['success'] = "Message envoyer";
+           // header('Refresh: 0');
             }
         } catch (Exception $e) {
             echo $e->getMessage();
         }
     } else {
-        $msg = "Bah alors! tu ne veux rien écrire ???";
+        $_SESSION['flash']['danger'] = "Bah alors! tu ne veux rien écrire ???";
     }
 }
 if (isset($_POST['send']) && !isset($file["error"])) {
@@ -42,27 +42,27 @@ if (isset($_POST['send']) && !isset($file["error"])) {
                         if (isset($id)) {
                             $db = new DB;
                             $db->insert('cmr_post(user_id,parent_id,titre,post,img)', "{$user_id},$id,'{$_POST['title']}','{$_POST['msg']}','$fileDbName'");
-                        header('Refresh: 0');
+                       // header('Refresh: 0');
                         } else {
                             $db = new DB;
                             $db->insert('cmr_post(user_id,titre,post,img)', "{$user_id},'{$_POST['title']}','{$_POST['msg']}','$fileDbName'");
-                        header('Refresh: 0');
+                       // header('Refresh: 0');
                         }
                     } catch (Exception $e) {
                         echo $e->getMessage();
                     }
-                    $msg = "image envoyer";
+                    $_SESSION['flash']['success'] = "image envoyer";
                 } else {
-                    $msg = "Erreur";
+                    $_SESSION['flash']['danger'] = "Erreur";
                 }
             } else {
-                $msg = "ce n'est pas une image.";
+                $_SESSION['flash']['danger'] = "ce n'est pas une image.";
             }
         } else {
-            $msg = "fichier trop lourd";
+            $_SESSION['flash']['danger'] = "fichier trop lourd";
         }
     }else{
-        $msg = "Tu peut mettre un titre stp!";
+        $_SESSION['flash']['danger'] = "Tu peut mettre un titre stp!";
     }
 }
 
@@ -74,8 +74,7 @@ $form = $html->code('section',
     $html->input('file', 'upload', 'file') .
     $html->img('#','imgpreview','img'). 
     $html->button('submit', 'primary center', 'envoyer', 'send') .
-    $html->formClose() .
-    $html->p($msg),
+    $html->formClose(),
     'dark formtop');
 echo $form;
 

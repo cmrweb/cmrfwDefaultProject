@@ -244,6 +244,40 @@ COLOR
     color: #fff;
 
 }
+.bg-primary {
+    background-color: var(--primary);
+    color: #fff;
+padding:20px;
+}
+
+.bg-success {
+    background-color: var(--success);
+    color: #fff;
+padding:20px;
+}
+
+.bg-gold {
+    background-color: var(--gold);
+    color: rgb(34, 33, 33);
+padding:20px;
+}
+
+.bg-dark {
+    background-color: var(--dark);
+    color: #fff;
+padding:20px;
+}
+.bg-light {
+    background-color: var(--light);
+    color: #202020;
+padding:20px;
+}
+.bg-danger {
+    background-color: var(--danger);
+    color: #fff;
+padding:20px;
+}
+
 .nav a.primary:hover  {
     background-color: #1c8ea5;
     color: #fff;
