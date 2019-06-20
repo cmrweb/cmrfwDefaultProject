@@ -27,8 +27,8 @@ if (isset($_POST['send']) && isset($file["error"])) {
 if (isset($_POST['send']) && !isset($file["error"])) {
     if (!empty($_POST['title'])) {
         if ($_FILES['upload']["size"] <= 5000000) {
-            $check = getimagesize($_FILES['upload']["tmp_name"]);
-            if ($check) {
+            // $check = getimagesize($_FILES['upload']["tmp_name"]);
+            // if ($check) {
                 $target_dir = '../' . ROOT_DIR . IMG_DIR;
                 $bytes = random_bytes(5);
                 $ext = pathinfo(basename($_FILES['upload']["name"]), PATHINFO_EXTENSION);
@@ -55,9 +55,9 @@ if (isset($_POST['send']) && !isset($file["error"])) {
                 } else {
                     $msg = "Erreur";
                 }
-            } else {
-                $msg = "ce n'est pas une image.";
-            }
+            // } else {
+            //     $msg = "ce n'est pas une image.";
+            // }
         } else {
             $msg = "fichier trop lourd";
         }
@@ -65,7 +65,10 @@ if (isset($_POST['send']) && !isset($file["error"])) {
         $msg = "Tu peut mettre un titre stp!";
     }
 }
-
+// if (isset($_POST['sendVid'])) {
+//     dump($_FILES['video']);
+// }
+// dump($_FILES['video']);
 $form = $html->code('section',
     $html->h('1','Message') .
     $html->formOpen('', 'post', 'large dark') .
@@ -79,4 +82,8 @@ $form = $html->code('section',
     'dark formtop');
 echo $form;
 
-
+?>
+<!-- <form action="" method="post" enctype="multipart/form-data">
+  <input type="file" name="video" accept="video/*" capture="environment">
+  <input type="submit" value="sendVid">
+</form> -->
