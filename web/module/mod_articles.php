@@ -37,12 +37,16 @@ foreach ($article->getData() as $key => $value) : ?>
 		-->	
 		<p><?= $value['post']?></p>
 		<?php
-		preg_match("/mp4|MOV|wmv|mkv|avi|m4v|webm/i",$value["img"],$img);
-		if($img):
+		preg_match("/mp4|MOV|wmv|mkv|avi|m4v|webm/i",$value["img"],$video);
+		if($video):
 		?>
 				<video src="<?= ROOT_DIR . IMG_DIR . '/' . $value["img"] ?>"width='100%' controls></video>
-		<?php endif ?>
+		<?php endif;
+				preg_match("/png|jpg|jpeg/i",$value["img"],$img);
+				if($img):
+				?> 
 		<a href="article/<?= $value['post_id']; ?>"><img src="<?= ROOT_DIR . IMG_DIR . '/' . $value["img"] ?>" alt="" width="100%"></a>
+		<?php endif;?>
 	</article>
 <?php
 endforeach;
