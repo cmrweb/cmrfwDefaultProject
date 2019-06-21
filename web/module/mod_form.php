@@ -4,28 +4,9 @@ $user_id = $userid;
 if (isset($_FILES['upload']))
     $file = array_filter($_FILES['upload']);
 //dump($file);
-if (isset($_POST['send']) && isset($file["error"])) {
-    if (!empty($_POST['title']) && !empty($_POST['msg'])) {
-        try {
-            $db = new DB;
-            if (isset($id)) {
-                $db->insert('cmr_post(user_id,parent_id,titre,post)', "{$user_id},$id,'{$_POST['title']}','{$_POST['msg']}'");
-                $msg = "Message envoyer";
-            header('Refresh: 0');
-            } else {
-                $db->insert('cmr_post(user_id,titre,post)', "{$user_id},'{$_POST['title']}','{$_POST['msg']}'");
-                $msg = "Message envoyer";
-            header('Refresh: 0');
-            }
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    } else {
-        $msg = "Bah alors! tu ne veux rien écrire ???";
-    }
-}
+
 if (isset($_POST['send']) && !isset($file["error"])) {
-    if (!empty($_POST['title'])) {
+
         if ($_FILES['upload']["size"] <= 5000000) {
             // $check = getimagesize($_FILES['upload']["tmp_name"]);
             // if ($check) {
@@ -33,7 +14,7 @@ if (isset($_POST['send']) && !isset($file["error"])) {
                 $bytes = random_bytes(5);
                 $ext = pathinfo(basename($_FILES['upload']["name"]), PATHINFO_EXTENSION);
                 $target_file = bin2hex($bytes);
-                $uploadName = strtolower($target_dir . '/' . $target_file . '.' . $ext);
+                $uploadName = strtolower($target_file . '.' . $ext);
                 $fileDbName = strtolower($target_file . '.' . $ext);
                 if(is_uploaded_file($_FILES['upload']["tmp_name"]))
                 if (move_uploaded_file($_FILES['upload']["tmp_name"], $uploadName)) {
@@ -61,8 +42,25 @@ if (isset($_POST['send']) && !isset($file["error"])) {
         } else {
             $msg = "fichier trop lourd";
         }
-    }else{
-        $msg = "Tu peut mettre un titre stp!";
+}
+if (isset($_POST['send']) && isset($file["error"])) {
+    if (!empty($_POST['title']) && !empty($_POST['msg'])) {
+        try {
+            $db = new DB;
+            if (isset($id)) {
+                $db->insert('cmr_post(user_id,parent_id,titre,post)', "{$user_id},$id,'{$_POST['title']}','{$_POST['msg']}'");
+                $msg = "Message envoyer";
+            header('Refresh: 0');
+            } else {
+                $db->insert('cmr_post(user_id,titre,post)', "{$user_id},'{$_POST['title']}','{$_POST['msg']}'");
+                $msg = "Message envoyer";
+            header('Refresh: 0');
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    } else {
+        $msg = "Bah alors! tu ne veux rien écrire ???";
     }
 }
 // if (isset($_POST['sendVid'])) {
@@ -79,7 +77,7 @@ $form = $html->code('section',
     $html->button('submit', 'primary center', 'envoyer', 'send') .
     $html->formClose() .
     $html->p($msg),
-    'dark formtop');
+    'dark large');
 echo $form;
 
 ?>
