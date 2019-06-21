@@ -1,8 +1,7 @@
 const assets=[
     './index.php',
-    '/web/pages/home.php',
-    '/web/pages/article.php',
-    '/asset/css/cmrstyle.css' 
+    './asset/css/cmrstyle.css'
+
 ];
 self.addEventListener('install',async event =>{
     const cache = await caches.open('files');

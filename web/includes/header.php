@@ -1,5 +1,6 @@
 
 <header class="fixhead xlarge light">
+<a id="addBtn" class="btn-link gold">App</a>
 <?php
 echo $html->h('1','CmrFramework');
 if(isset($_POST['disc'])){
